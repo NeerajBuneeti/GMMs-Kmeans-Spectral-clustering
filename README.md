@@ -14,7 +14,7 @@ Gaussian Mixture Models are a versatile clustering method that assumes the data 
 #### Key Points:
 1. **Cluster Flexibility**: GMM can model ellipsoidal shapes, unlike K-Means, which tends to form spherical clusters.
 2. **Covariance Matrices**: By tweaking the covariance matrix, we can capture different cluster shapes, from spherical to diagonal, to unrestricted forms where correlations between features exist.
-3. **Performance Metrics**: I used **Adjusted Rand Index (ARI)** and **Normalized Mutual Information (NMI)** to evaluate performance. Both metrics indicated GMM outperformed K-Means, especially when clusters had non-spherical shapes【5†source】.
+3. **Performance Metrics**: I used **Adjusted Rand Index (ARI)** and **Normalized Mutual Information (NMI)** to evaluate performance. Both metrics indicated GMM outperformed K-Means, especially when clusters had non-spherical shapes.
 
 ---
 
@@ -23,7 +23,7 @@ K-Means is one of the most popular clustering algorithms due to its simplicity a
 
 #### Key Points:
 1. **Simplicity**: K-Means is easy to implement and converges quickly, making it a go-to choice for simple, spherical datasets.
-2. **Limitations**: When applied to datasets with irregularly shaped clusters (like elliptical Gaussians), K-Means tends to misclassify points. Its centroids cannot capture correlation between features as efficiently as GMM【5†source】.
+2. **Limitations**: When applied to datasets with irregularly shaped clusters (like elliptical Gaussians), K-Means tends to misclassify points. Its centroids cannot capture correlation between features as efficiently as GMM.
 
 ---
 
@@ -31,9 +31,9 @@ K-Means is one of the most popular clustering algorithms due to its simplicity a
 Spectral Clustering is a graph-based clustering technique that excels at capturing non-linear structures in the data. It constructs a similarity graph, transforms it using a Laplacian matrix, and applies K-Means to the transformed data.
 
 #### Key Points:
-1. **Non-linear Data**: Spectral Clustering is highly effective in datasets where clusters form intricate, non-linear shapes. For instance, it easily handles spiral-shaped clusters, which K-Means struggles with【5†source】.
+1. **Non-linear Data**: Spectral Clustering is highly effective in datasets where clusters form intricate, non-linear shapes. For instance, it easily handles spiral-shaped clusters, which K-Means struggles with
 2. **Affinity Matrix and Sigma**: The similarity graph is constructed using Gaussian kernels. The parameter **sigma** controls the spread of the kernel, affecting how data points are clustered. Small sigma values only consider nearby points, while larger values encompass more distant points.
-3. **Eigenvector Transformation**: Spectral Clustering transforms the data into a new space defined by the eigenvectors of the Laplacian matrix, allowing K-Means to work better in this transformed space【5†source】.
+3. **Eigenvector Transformation**: Spectral Clustering transforms the data into a new space defined by the eigenvectors of the Laplacian matrix, allowing K-Means to work better in this transformed space.
 
 ---
 
