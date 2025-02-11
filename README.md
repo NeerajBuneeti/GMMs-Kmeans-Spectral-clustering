@@ -1,51 +1,83 @@
+# Clustering Techniques Comparison: GMM, K-Means, and Spectral Clustering
 
+Clustering Visualization
 
-## Overview
+## 📌 Overview
 
-In this repository, I explore and compare three powerful clustering techniques—**Gaussian Mixture Models (GMMs)**, **K-Means**, and **Spectral Clustering**. Each of these algorithms has its strengths and limitations, depending on the nature of the data being clustered. Through hands-on experimentation and evaluation, I applied these techniques to datasets with varying complexities and observed their performances using relevant metrics.
+This repository explores and compares three powerful clustering techniques:
+- **Gaussian Mixture Models (GMMs)**
+- **K-Means**
+- **Spectral Clustering**
 
-Let's dive into a breakdown of my understanding and key takeaways from these methods!
+Through hands-on experimentation and evaluation, these techniques are applied to datasets with varying complexities, and their performances are observed using relevant metrics.
 
----
+## 🧠 Techniques Explored
 
-### Gaussian Mixture Models (GMMs)
-Gaussian Mixture Models are a versatile clustering method that assumes the data is generated from a mixture of several Gaussian distributions. They offer flexibility in modeling clusters that are not necessarily spherical, which gives GMMs a distinct advantage over other techniques like K-Means, especially when dealing with Gaussian-distributed clusters.
+### 1. Gaussian Mixture Models (GMMs)
 
-#### Key Points:
-1. **Cluster Flexibility**: GMM can model ellipsoidal shapes, unlike K-Means, which tends to form spherical clusters.
-2. **Covariance Matrices**: By tweaking the covariance matrix, we can capture different cluster shapes, from spherical to diagonal, to unrestricted forms where correlations between features exist.
-3. **Performance Metrics**: I used **Adjusted Rand Index (ARI)** and **Normalized Mutual Information (NMI)** to evaluate performance. Both metrics indicated GMM outperformed K-Means, especially when clusters had non-spherical shapes.
-
----
-
-### K-Means Clustering
-K-Means is one of the most popular clustering algorithms due to its simplicity and computational efficiency. It works best when the clusters are spherical and equally sized. However, it struggles with complex cluster shapes like elliptical or non-linear distributions.
+GMMs assume data is generated from a mixture of several Gaussian distributions, offering flexibility in modeling non-spherical clusters.
 
 #### Key Points:
-1. **Simplicity**: K-Means is easy to implement and converges quickly, making it a go-to choice for simple, spherical datasets.
-2. **Limitations**: When applied to datasets with irregularly shaped clusters (like elliptical Gaussians), K-Means tends to misclassify points. Its centroids cannot capture correlation between features as efficiently as GMM.
+- **Cluster Flexibility**: Models ellipsoidal shapes
+- **Covariance Matrices**: Captures different cluster shapes
+- **Performance Metrics**: Outperformed K-Means in ARI and NMI, especially for non-spherical clusters
 
----
+### 2. K-Means Clustering
 
-### Spectral Clustering
-Spectral Clustering is a graph-based clustering technique that excels at capturing non-linear structures in the data. It constructs a similarity graph, transforms it using a Laplacian matrix, and applies K-Means to the transformed data.
+A popular algorithm known for its simplicity and computational efficiency, best suited for spherical and equally sized clusters.
 
 #### Key Points:
-1. **Non-linear Data**: Spectral Clustering is highly effective in datasets where clusters form intricate, non-linear shapes. For instance, it easily handles spiral-shaped clusters, which K-Means struggles with
-2. **Affinity Matrix and Sigma**: The similarity graph is constructed using Gaussian kernels. The parameter **sigma** controls the spread of the kernel, affecting how data points are clustered. Small sigma values only consider nearby points, while larger values encompass more distant points.
-3. **Eigenvector Transformation**: Spectral Clustering transforms the data into a new space defined by the eigenvectors of the Laplacian matrix, allowing K-Means to work better in this transformed space.
+- **Simplicity**: Easy to implement, quick convergence
+- **Limitations**: Struggles with complex cluster shapes
 
----
+### 3. Spectral Clustering
 
-### Conclusion: When to Use Each Method?
-- **GMMs** are best when you expect clusters of different shapes and want to model their distributions flexibly.
-- **K-Means** works well for quick clustering of simple, spherical data.
-- **Spectral Clustering** is ideal for complex, non-linear data distributions that cannot be handled by traditional methods like K-Means.
+A graph-based technique excelling at capturing non-linear structures in data.
 
----
+#### Key Points:
+- **Non-linear Data**: Highly effective for intricate, non-linear shapes
+- **Affinity Matrix and Sigma**: Controls cluster formation
+- **Eigenvector Transformation**: Allows better K-Means performance in transformed space
 
-### Let's Collaborate!
+## 📊 Comparative Analysis
 
-I am passionate about Machine Learning and Artificial Intelligence, and always open to collaborating on exciting projects. If you're interested in exploring new ideas together, feel free to reach out to my mail: voonadhanvanth183@gmail.com
+| Technique | Strengths | Weaknesses | Best Use Case |
+|-----------|-----------|------------|---------------|
+| GMM | Flexible shapes, Distribution modeling | Computationally intensive | Complex, varied cluster shapes |
+| K-Means | Fast, Simple | Limited to spherical clusters | Quick clustering of simple data |
+| Spectral | Handles non-linear data | Sensitive to parameter choice | Complex, non-linear distributions |
 
-Happy coding and clustering! :)
+## 🚀 Getting Started
+
+### Prerequisites
+- Python 3.7+
+- NumPy
+- Scikit-learn
+- Matplotlib
+
+### Installation
+```bash
+git clone https://github.com/yourusername/clustering-comparison.git
+cd clustering-comparison
+pip install -r requirements.txt
+```
+
+### Usage
+```python
+from clustering import gmm, kmeans, spectral
+
+# Example usage
+X, y = load_data('example_dataset.csv')
+gmm_labels = gmm.cluster(X, n_clusters=3)
+kmeans_labels = kmeans.cluster(X, n_clusters=3)
+spectral_labels = spectral.cluster(X, n_clusters=3)
+
+# Visualize results
+visualize_clusters(X, [gmm_labels, kmeans_labels, spectral_labels])
+```
+
+## 📈 Results
+
+Clustering Results
+
+For detailed performance metrics and visualizations, refer to the `results` directory.
